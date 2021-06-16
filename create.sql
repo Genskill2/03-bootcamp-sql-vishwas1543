@@ -7,8 +7,8 @@ CREATE TABLE publisher (
 CREATE TABLE books (
   id int PRIMARY KEY,
   title TEXT,
-  FOREIGN KEY (publisher)
-  REFERENCES publisher (id)
+  publisher integer,
+  FOREIGN KEY (publisher) REFERENCES publisher.id
 );
 
 CREATE TABLE subjects (
@@ -21,6 +21,6 @@ CREATE TABLE books_subjects (
   book int,
   subject int,
 
-  FOREIGN KEY (book) REFERENCES books (id),
-  FOREIGN KEY (subject) REFERENCES subjects (id)
+  FOREIGN KEY (book) REFERENCES books.id,
+  FOREIGN KEY (subject) REFERENCES subjects.id
 );
